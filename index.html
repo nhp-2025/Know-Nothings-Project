@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Before MAGA: How 19th-Century Newspapers Gave Voice to America’s First Nativist Movement</title>
+    <meta name="description" content="Scrollama: Sticky Overlay Example" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link href="cropped_ellis-island-immigrants-getty.jpg" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.13.0/mapbox-gl.js"></script>
+    <script src="https://unpkg.com/@turf/turf@6.5.0/turf.min.js"></script>
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Georgia, serif;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #333;
+      }
+
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      a {
+        margin: 0;
+        font-weight: 400;
+      }
+
+      a,
+      a:visited,
+      a:hover {
+        color: teal;
+        text-decoration: none;
+        border-bottom: 2px solid currentColor;
+      }
+
+      nav {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        background: #f3f3f3;
+        padding: 1rem;
+        padding-right: 5rem;
+        flex-wrap: wrap;
+      }
+
+      .nav__examples {
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+      }
+
+      .nav__examples > * {
+        margin-right: 0.5rem;
+      }
+
+      #intro {
+        max-width: fit-content;
+        margin: 1rem auto;
+        text-align: center;
+        margin-bottom: 320px;
+      }
+
+      .intro__hed {
+        font-size: 2em;
+        margin: 2rem auto 0.5rem auto;
+      }
+
+      #main-content {
+        width: 100%;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 6rem;
+        padding-right: 6rem;
+        text-align: left;
+      }
+
+      #outro {
+        height: 640px;
+      }
+
+      .img-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+      }
+
+      .img-container img {
+        width: 100%;
+        max-width: 1000px;
+        height: auto;
+        display: block;
+        margin: 2rem auto;
+      }
+
+      .small-flag img {
+        max-width: 250px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+      }
+
+      #scrolly {
+        position: relative;
+        background-color: #f3f3f3;
+        padding: 1rem;
+      }
+
+      .final {
+        margin-bottom: 10rem !important;
+        opacity: 0;
+      }
+
+      .sticky-thing {
+        position: sticky;
+        top: 12.5vh;
+        height: 75vh;
+        width: 100%;
+        z-index: 1;
+        overflow: hidden;
+      }
+
+      .sticky-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
+      article {
+        position: relative;
+        max-width: 100%;
+        margin: 0 auto;
+      }
+
+      .step {
+        margin: 0 auto 10rem auto;
+        padding: 8rem 1rem;
+        background-color: rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 10;
+        .step {
+        margin-top: 20px; /* Pushes the text down below the sticky image */
+}
+
+      }
+
+      .step:last-child {
+        margin-bottom: 0;
+      }
+
+      .step.is-active p {
+        background-color: goldenrod;
+        color: #3b3b3b;
+      }
+
+      .step p {
+        text-align: center;
+        padding: 1rem;
+        font-size: 1rem;
+        background-color: #3b3b3b;
+        color: white;
+      }
+    </style>
+  </head>
+
+
+<body>
+  <main>
+    <section id="intro">
+      <h1 class="intro__hed">
+        Before MAGA: How 19th-Century Newspapers Gave Voice to America’s First Nativist Movement
+      </h1>
+      <p class="byline">By Natalie Holly Purviance</p>
+      <p></p>
+      <br>
+      <section></section>
+    <section id="main-content">
+      <p>
+        While today’s MAGA slogan, “Make America Great Again,” evokes populist and nativist sentiment, its roots reach back to 19th-century movements like the Know Nothings, who cast immigration as a threat to American identity and values.
+        Almost a century after the American Revolution, and on the cusp of the Civil War, the United States was still in the process of forging its national identity, and the subject of immigration was already a heated political point of contention. 
+         How did 19th-century American media reflect the language of the Know Nothing party’s perceptions of immigration and its nativist ideology?
+      </p>
+       </p>
+<br>
+ <p><p><strong>
+Methods:</strong></p>
+      <ul>
+      This project examines the rise of the 19th century Native American Party, known colloquiolly as the Know Nothings and considered
+     the nation's first major nativist political party.  Its members were known for their secrecy and their hostility toward Irish Catholic immigrants. When questioned about their party affiliation, 
+they would often utter, "I know nothing."
+      <p>
+         </p>
+<br>
+ <p>
+        From the Chronicling America API, a historical newspaper archive, I assembled a corpus of 3,000 articles published between 1845 and 1855 in New York, Maryland, and Massachusetts using Python and the pandas library. 
+        For text preprocessing, I applied Python’s regular expressions (re) module and the Natural Language Toolkit (NLTK) to convert all text to lowercase, remove punctuation, numbers, and excess whitespace, and filter out 
+        common English stopwords (e.g. articles, conjunctions, prepositions, pronouns, etc.) using NLTK’s stopword corpus. 
+        With the cleaned dataset, I applied NLP techniques, specifically keyword extraction and thematic clustering, 
+        to identify and group the most notable terms and themes that emerged in the press. 
+        The analysis aimed to expose how mid-nineteenth-century media reflected and amplified nativist sentiment, revealing how such attitudes were communicated through language and civic discourse. 
+        Though language evolves, this study asks whether we can trace the genealogy of populist immigration rhetoric and the ways language has historically framed narratives of immigration and national identity.
+      </p>
+<br>
+<p>
+
+</p>
+      <p><strong>
+Notes:</strong></p>
+      <ul>
+    
+        <li>The study focuses on the famine years (1845–1855), when Irish Catholic immigration surged.
+        <li>“Native American” during this era referred to White, native-born Protestants, not Indigenous peoples.
+        <li>This study focuses on descriptive, computational methods and intentionally avoids sentiment analysis or subjective interpretation.</li>
+        <li>The corpus was narrowed to just three states: New York, Massachusetts, and Maryland. All had major ports of arrival for immigrants with a high demand for labor.
+
+        </li>
+        <li>Some parsing inconsistencies exist in the dataset.
+            <p></p>
+      </ul>
+    </section>
+
+    <section id="scrolly">
+  <div class="sticky-thing">
+    <img src="Irish immigrants leaving Ireland.png" alt="Irish immigrants leaving Ireland">
+  </div>
+<article>
+  <!-- Step 1 -->
+  <div class="step" data-step="1">
+    <p>Unlike their mainly Protestant countrymen in previous decades, most of the Irish immigrants of this era were Catholic, and arrived in very destitute conditions. Sadly, many were not well received by native-born Americans, including their Scotch-Irish predecessors who feared their allegiance to the pope would subvert American culture. 
+      These new Irish immigrants, having fled a devastating famine, would make up half of all new immigrants in the U.S. over forty years. They often took low-paying, menial work and, due to discrimination and social exclusion, were relegated to urban slums. 
+      The perception that they were inherently prone to social problems like disease, violence, and alcoholism was often used to justify nativist rhetoric against them.</p>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="step" data-step="2">
+    <p>
+      In this context, newspapers began to reflect specific fears, stereotypes, and anxieties that became central to the Know Nothing platform. Their populist rhetoric around immigration and Catholicism was well-documented in the press, where derogatory representations and harmful stereotypes helped to validate the demeaning treatment of the Irish immigrants. Considering the media's influence on shaping public perception, my goal was to explore how computational methods could be used to investigate this dynamic.
+    </p>
+    <div class="img-container">
+      <img src="anti-immigrant image.jpg" alt="Anti-immigrant cartoon">
+    </div>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="step" data-step="3">
+    <p>
+      What words and themes could be elevated from press coverage of the era, and what insights might we glean from them? 
+      The U.S. Library of Congress Chronicling America API provides access to American historical newspapers which I scraped and retrieved a dataset of 3,000 articles that mentioned the Know Nothings, limiting the search to NY, MD, and MA newspapers from 1845–1855. I selected these states to contain the unimaginable sprawl of this project, and because of their historical relevance to Irish immigration. Most Irish immigrants entering the U.S. at the time either crossed the Canadian border or came through the East Coast ports of NYC and Boston. Baltimore also saw a large influx of Irish immigrants, and its political and cultural identity was split between Northern industrialism and Southern agrarianism, which uniquely shaped how immigrants were received.
+    </p>
+    <div class="img-container">
+      <img src="Word Cloud.png" alt="Word Cloud">
+    </div>
+
+    <p>
+      I manually read a few articles about the Know Nothings and created a list of 43 relevant keywords. Then, I extracted their instances in each article and generated a word cloud.
+    </p>
+
+    <div class="img-container">
+      <img src="top-10-keyword-frequency.png" alt="top-10-keyword-frequency" class="small-img">
+    </div>
+
+    <p>
+      I then created a dictionary of themes and assigned one to each article based on the extracted keywords.
+    </p>
+  </div>
+
+  <!-- Step 4 -->
+  <div class="step chart-step" data-step="4">
+    <div class="img-container">
+      <img src="ZTLP0-articles-clustered-by-theme-using-nlp-nbsp-.png" alt="Articles clustered by theme using NLP">
+    </div>
+    <div class="img-container">
+      <img src="Abraham Lincoln Quote.jpg" alt="Abe Lincoln Quote">
+    </div>
+  </div>
+
+  <!-- Step 5 -->
+  <div class="step final" data-step="5">
+    <div class="img-container">
+      <img src="Abraham Lincoln Quote.jpg" alt="Abe Lincoln Quote">
+    </div>
+  </div>
+</article>
+
+</section>
+
+
+    <section id="outro" class="container-lg">
+      <h2>Conclusions</h2>
+       <p></p>
+      <section></section>
+      
+      
+      
+    <p>The top keyword "Order" (19,600 mentions) could suggest that the Know Nothing movement framed itself as a defender of social and political order. 
+However, the word alone cannot definitively offer this conclusion without reading how the word is being used in each instance. The Know Nothings expressed 
+their fear of perceived chaos brought on by immigrants, particularly Catholics and their desire to restore a sense of national stability. The term "Order" likely symbolizes their push to maintain control over their idea of American society.</p>
+
+    <section></section>
+<br>
+<p>The second most frequent keyword, "Constitution" (11,650 mentions), could also indicate that the Know Nothings were deeply concerned with the idea of constitutional legitimacy. It may also signal their opposition to foreign influence on American political structures, particularly regarding the increasing political power of Irish Catholic immigrants, and a desire to maintain what they perceived as the original framework of the nation. One aspect of their platform was extending the naturalization period to 21 years to limit the influence of immigrants, particularly Irish Catholics—on American society and politics. They believed this could help slow down the process of granting citizenship to immigrants, and limiting their political power and ability to vote.</p>
+
+<section></section>
+<br>
+<p>"Catholic" (11,400 mentions) highlights a central role religion, particularly Catholicism, 
+  played in the tensions within the Know Nothing movement. This concentration underscores how the KnowNothing movement framed Catholicism as a threat to American Protestantism and national identity. 
+  Such language marked Catholic immigrants as a “dangerous” influence who would erode the moral and cultural fabric of the U.S.
+<section></section>
+<br>
+<p>Given more time, I would have conducted a sentiment analysis using AI through NLP techniques.
+
+
+  </main>
+
+  <script>
+    const scroller = scrollama();
+    function handleStepEnter(response) {
+      const steps = document.querySelectorAll('.step');
+      steps.forEach(step => step.classList.remove('is-active'));
+      response.element.classList.add('is-active');
+    }
+
+    function init() {
+      scroller
+        .setup({
+          step: "#scrolly article .step",
+          offset: 0.33,
+          debug: false
+        })
+        .onStepEnter(handleStepEnter);
+
+      window.addEventListener("resize", scroller.resize);
+    }
+
+    init();
+  </script>
+</body>
+</html>
+
