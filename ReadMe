@@ -1,11 +1,9 @@
 Before MAGA: How 19th-Century Newspapers Gave Voice to America’s First Nativist Movement
-
 A computational journalism project by Natalie Holly Purviance
 
 Overview:
 
 This project analyzes nearly a decade of newspaper coverage surrounding the Know Nothing movement—America’s first major nativist, anti-immigrant political coalition active between 1845–1855. Using Python, web scraping, text analysis, and natural language processing (NLP), the project uncovers rhetorical patterns, recurring themes, and geographic circulation of nativist messaging across early American newspapers.
-
 The analysis draws on a dataset originally scraped from the Library of Congress Chronicling America historical newspaper archive. Articles were collected from New York, Massachusetts, and Maryland papers across the pre-Civil War period.
 
 Why This Project:
@@ -15,49 +13,31 @@ The Know Nothings provide a crucial historical link between 19th-century xenopho
 This project seeks to:
 
 Examine how early newspapers constructed racialized and religious “threats”
-
-Map the circulation of nativist rhetoric across regions
-
+Map the circulation of nativist rhetoric across states
 Compare 19th-century persuasion tactics to modern misinformation patterns
-
 Demonstrate the power of computational methods in historical research
 
 Methodology
 1. Data Collection
-
 Articles were scraped from the Library of Congress Chronicling America API
-
 Filters: 1845–1855, keyword “Know Nothing,” three states (NY, MA, MD)
-
 Approximately 3,000 articles were retrieved at the time of scraping
 
-Important Note
-
+Important Note:
 During the course of this project, the Library of Congress changed their API.
 This meant the query structure and access endpoints no longer matched the version used during initial data collection. Fortunately, the dataset had already been scraped and saved locally. I uploaded that saved dataset directly into the notebook so I could continue the NLP and analysis workflow without disruption.
 
 2. Data Cleaning
-
 Text normalization
-
 Removal of OCR errors
-
 Filtering out non-editorial content
-
 Deduplication of similar articles
 
 3. Natural Language Processing (NLP)
-
 Techniques used:
-
 Tokenization and stopword removal
-
 Keyword extraction
-
 Topic clustering
-
 Frequency analysis of rhetorical frames
-
 Named entity recognition (NER) for identifying targeted groups
-
 Sentiment characterization of nativist language
