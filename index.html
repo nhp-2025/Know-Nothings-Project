@@ -16,175 +16,149 @@
     <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
     <script src="https://unpkg.com/scrollama"></script>
 
-    <style>
-      * {
-        box-sizing: border-box;
-      }
+   <style>
+  * {
+    box-sizing: border-box;
+  }
 
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-      }
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
 
-      body {
-        font-family: Georgia, serif;
-        font-size: 1rem;
-        line-height: 1.5;
-        color: #333;
-      }
+  body {
+    font-family: Georgia, serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+  }
 
-      p,
-      h1,
-      h2,
-      h3,
-      h4,
-      a {
-        margin: 0;
-        font-weight: 400;
-      }
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  a {
+    margin: 0;
+    font-weight: 400;
+  }
 
-      a,
-      a:visited,
-      a:hover {
-        color: teal;
-        text-decoration: none;
-        border-bottom: 2px solid currentColor;
-      }
+  a,
+  a:visited,
+  a:hover {
+    color: teal;
+    text-decoration: none;
+    border-bottom: 2px solid currentColor;
+  }
 
-      nav {
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        background: #f3f3f3;
-        padding: 1rem;
-        padding-right: 5rem;
-        flex-wrap: wrap;
-      }
+  nav {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    background: #f3f3f3;
+    padding: 1rem;
+    padding-right: 5rem;
+    flex-wrap: wrap;
+  }
 
-      .nav__examples {
-        display: flex;
-        align-items: baseline;
-        flex-wrap: wrap;
-        margin-top: 1rem;
-      }
+  #intro {
+    max-width: fit-content;
+    margin: 1rem auto;
+    text-align: center;
+    margin-bottom: 320px;
+  }
 
-      .nav__examples > * {
-        margin-right: 0.5rem;
-      }
+  .intro__hed {
+    font-size: 2em;
+    margin: 2rem auto 0.5rem auto;
+  }
 
-      #intro {
-        max-width: fit-content;
-        margin: 1rem auto;
-        text-align: center;
-        margin-bottom: 320px;
-      }
+  #main-content {
+    width: 100%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 6rem;
+    padding-right: 6rem;
+    text-align: left;
+  }
 
-      .intro__hed {
-        font-size: 2em;
-        margin: 2rem auto 0.5rem auto;
-      }
+  /* FIX: push sticky section away so outro never overlaps */
+  #scrolly {
+    position: relative;
+    background-color: #f3f3f3;
+    padding: 1rem;
+    margin-bottom: 100vh;
+  }
 
-      #main-content {
-        width: 100%;
-        max-width: 1000px;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 6rem;
-        padding-right: 6rem;
-        text-align: left;
-      }
+  .sticky-thing {
+    position: sticky;
+    top: 12.5vh;
+    height: 75vh;
+    width: 100%;
+    z-index: 0; /* behind the text steps */
+    overflow: hidden;
+  }
 
-      #outro {
-        height: 640px;
-      }
+  .img-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
 
-      .img-container {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-      }
+  .img-container img {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    display: block;
+    margin: 2rem auto;
+  }
 
-      .img-container img {
-        width: 100%;
-        max-width: 1000px;
-        height: auto;
-        display: block;
-        margin: 2rem auto;
-      }
+  /* Scroll steps */
+  .step {
+    margin: 0 auto 10rem auto;
+    padding: 8rem 1rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+  }
 
-      .small-flag img {
-        max-width: 250px;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-      }
+  .step:last-child {
+    margin-bottom: 0;
+  }
 
-      #scrolly {
-        position: relative;
-        background-color: #f3f3f3;
-        padding: 1rem;
-      }
+  .step.is-active p {
+    background-color: goldenrod;
+    color: #3b3b3b;
+  }
 
-      .final {
-        opacity: 1;
-        z-index: 10;
-        position: relative;
-      }
+  .step p {
+    text-align: center;
+    padding: 1rem;
+    font-size: 1rem;
+    background-color: #3b3b3b;
+    color: white;
+  }
 
-      .sticky-thing {
-        position: sticky;
-        top: 12.5vh;
-        height: 75vh;
-        width: 100%;
-        z-index: 0;
-        overflow: hidden;
-      }
+  /* FIX: Ensure Outro ALWAYS stays on top of images */
+  #outro {
+    position: relative;
+    z-index: 20;   /* higher than sticky */
+    background-color: white;
+    padding: 4rem 6rem;
+  }
 
-      .sticky-image {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        display: block;
-      }
+  /* Final step (if used) */
+  .final {
+    opacity: 1;
+    position: relative;
+    z-index: 15; /* sits ABOVE sticky, BELOW outro */
+  }
+</style>
 
-      article {
-        position: relative;
-        max-width: 100%;
-        margin: 0 auto;
-      }
-
-      .step {
-        margin: 0 auto 10rem auto;
-        padding: 8rem 1rem;
-        background-color: rgba(0, 0, 0, 0.1);
-        position: relative;
-        z-index: 10;
-        .step {
-        margin-top: 20px; /* Pushes the text down below the sticky image */
-}
-
-      }
-
-      .step:last-child {
-        margin-bottom: 0;
-      }
-
-      .step.is-active p {
-        background-color: goldenrod;
-        color: #3b3b3b;
-      }
-
-      .step p {
-        text-align: center;
-        padding: 1rem;
-        font-size: 1rem;
-        background-color: #3b3b3b;
-        color: white;
-      }
-    </style>
   </head>
 
 
