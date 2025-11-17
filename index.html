@@ -129,8 +129,8 @@
       }
 
       .final {
-        margin-bottom: 10rem !important;
         opacity: 1;
+        z-index: 10;
         position: relative;
       }
 
@@ -139,7 +139,7 @@
         top: 12.5vh;
         height: 75vh;
         width: 100%;
-        z-index: 1;
+        z-index: 0;
         overflow: hidden;
       }
 
@@ -293,56 +293,26 @@ Notes:</strong></p>
 </div>
 
 
+</section> <!-- CLOSES the #scrolly section above -->
 
-    <section id="outro" class="container-lg">
-      <h2>Conclusions</h2>
-       <p></p>
-      <section></section>
-      
-      
-      
-    <p>The top keyword "Order" (19,600 mentions) could suggest that the Know Nothing movement framed itself as a defender of social and political order. 
-However, the word alone cannot definitively offer this conclusion without reading how the word is being used in each instance. The Know Nothings expressed 
-their fear of perceived chaos brought on by immigrants, particularly Catholics and their desire to restore a sense of national stability. The term "Order" likely symbolizes their push to maintain control over their idea of American society.</p>
+<section id="outro" class="container-lg">
+  <h2>Conclusions</h2>
 
-    <section></section>
-<br>
-<p>The second most frequent keyword, "Constitution" (11,650 mentions), could also indicate that the Know Nothings were deeply concerned with the idea of constitutional legitimacy. It may also signal their opposition to foreign influence on American political structures, particularly regarding the increasing political power of Irish Catholic immigrants, and a desire to maintain what they perceived as the original framework of the nation. One aspect of their platform was extending the naturalization period to 21 years to limit the influence of immigrants, particularly Irish Catholics—on American society and politics. They believed this could help slow down the process of granting citizenship to immigrants, and limiting their political power and ability to vote.</p>
+  <p>The top keyword "Order" (19,600 mentions) could suggest that the Know Nothing movement framed itself as a defender of social and political order. 
+  However, the word alone cannot definitively offer this conclusion without reading how the word is being used in each instance. The Know Nothings expressed 
+  their fear of perceived chaos brought on by immigrants, particularly Catholics, and their desire to restore a sense of national stability. The term "Order" likely symbolizes their push to maintain control over their idea of American society.</p>
 
-<section></section>
-<br>
-<p>"Catholic" (11,400 mentions) highlights a central role religion, particularly Catholicism, 
-  played in the tensions within the Know Nothing movement. This concentration underscores how the KnowNothing movement framed Catholicism as a threat to American Protestantism and national identity. 
-  Such language marked Catholic immigrants as a “dangerous” influence who would erode the moral and cultural fabric of the U.S.
-<section></section>
-<br>
-<p>Given more time, I would have conducted a sentiment analysis using AI through NLP techniques.
+  <br>
 
+  <p>The second most frequent keyword, "Constitution" (11,650 mentions), could also indicate that the Know Nothings were deeply concerned with the idea of constitutional legitimacy. It may also signal their opposition to foreign influence on American political structures, particularly regarding the increasing political power of Irish Catholic immigrants, and a desire to maintain what they perceived as the original framework of the nation. One aspect of their platform was extending the naturalization period to 21 years to limit the influence of immigrants, particularly Irish Catholics—on American society and politics. They believed this could help slow down the process of granting citizenship to immigrants, and limiting their political power and ability to vote.</p>
 
-  </main>
+  <br>
 
-  <script>
-    const scroller = scrollama();
-    function handleStepEnter(response) {
-      const steps = document.querySelectorAll('.step');
-      steps.forEach(step => step.classList.remove('is-active'));
-      response.element.classList.add('is-active');
-    }
+  <p>"Catholic" (11,400 mentions) highlights a central role religion, particularly Catholicism, 
+  played in the tensions within the Know Nothing movement. This concentration underscores how the Know Nothing movement framed Catholicism as a threat to American Protestantism and national identity. 
+  Such language marked Catholic immigrants as a “dangerous” influence who would erode the moral and cultural fabric of the U.S.</p>
 
-    function init() {
-      scroller
-        .setup({
-          step: "#scrolly article .step",
-          offset: 0.33,
-          debug: false
-        })
-        .onStepEnter(handleStepEnter);
+  <br>
 
-      window.addEventListener("resize", scroller.resize);
-    }
-
-    init();
-  </script>
-</body>
-</html>
-
+  <p>Given more time, I would have conducted a sentiment analysis using AI through NLP techniques.</p>
+</section>
