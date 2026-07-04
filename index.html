@@ -8,11 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="stylesheet" href="style.css" />
-    <link href="cropped_ellis-island-immigrants-getty.jpg" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.13.0/mapbox-gl.js"></script>
-    <script src="https://unpkg.com/@turf/turf@6.5.0/turf.min.js"></script>
     <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
     <script src="https://unpkg.com/scrollama"></script>
 
@@ -169,27 +166,24 @@
         Before MAGA: How 19th-Century Newspapers Gave Voice to America’s First Nativist Movement
       </h1>
       <p class="byline">By Natalie Holly Purviance</p>
-      <p></p>
-      <br>
-      <section></section>
+    </section>
+
     <section id="main-content">
       <p>
         While today’s MAGA slogan, “Make America Great Again,” evokes populist and nativist sentiment, its roots reach back to 19th-century movements like the Know Nothings, who cast immigration as a threat to American identity and values.
         Almost a century after the American Revolution, and on the cusp of the Civil War, the United States was still in the process of forging its national identity, and the subject of immigration was already a heated political point of contention. 
          How did 19th-century American media reflect the language of the Know Nothing party’s perceptions of immigration and its nativist ideology?
       </p>
-       </p>
-<br>
- <p><p><strong>
-Methods:</strong></p>
-      <ul>
-      This project examines the rise of the 19th century Native American Party, known colloquiolly as the Know Nothings and considered
-     the nation's first major nativist political party.  Its members were known for their secrecy and their hostility toward Irish Catholic immigrants. When questioned about their party affiliation, 
-they would often utter, "I know nothing."
+
+      <p><strong>Methods:</strong></p>
+
       <p>
-         </p>
-<br>
- <p>
+        This project examines the rise of the 19th century Native American Party, known colloquially as the Know Nothings and considered
+        the nation's first major nativist political party. Its members were known for their secrecy and their hostility toward Irish Catholic immigrants. When questioned about their party affiliation,
+        they would often utter, "I know nothing."
+      </p>
+
+      <p>
         From the Chronicling America API, a historical newspaper archive, I assembled a corpus of 3,000 articles published between 1845 and 1855 in New York, Maryland, and Massachusetts using Python and the pandas library. 
         For text preprocessing, I applied Python’s regular expressions (re) module and the Natural Language Toolkit (NLTK) to convert all text to lowercase, remove punctuation, numbers, and excess whitespace, and filter out 
         common English stopwords (e.g. articles, conjunctions, prepositions, pronouns, etc.) using NLTK’s stopword corpus. 
@@ -198,22 +192,14 @@ they would often utter, "I know nothing."
         The analysis aimed to expose how mid-nineteenth-century media reflected and amplified nativist sentiment, revealing how such attitudes were communicated through language and civic discourse. 
         Though language evolves, this study asks whether we can trace the genealogy of populist immigration rhetoric and the ways language has historically framed narratives of immigration and national identity.
       </p>
-<br>
-<p>
 
-</p>
-      <p><strong>
-Notes:</strong></p>
+      <p><strong>Notes:</strong></p>
       <ul>
-    
-        <li>The study focuses on the famine years (1845–1855), when Irish Catholic immigration surged.
-        <li>“Native American” during this era referred to White, native-born Protestants, not Indigenous peoples.
+        <li>The study focuses on the famine years (1845–1855), when Irish Catholic immigration surged.</li>
+        <li>“Native American” during this era referred to White, native-born Protestants, not Indigenous peoples.</li>
         <li>This study focuses on descriptive, computational methods and intentionally avoids sentiment analysis or subjective interpretation.</li>
-        <li>The corpus was narrowed to just three states: New York, Massachusetts, and Maryland. All had major ports of arrival for immigrants with a high demand for labor.
-
-        </li>
-        <li>Some parsing inconsistencies exist in the dataset.
-            <p></p>
+        <li>The corpus was narrowed to just three states: New York, Massachusetts, and Maryland. All had major ports of arrival for immigrants with a high demand for labor.</li>
+        <li>Some parsing inconsistencies exist in the dataset.</li>
       </ul>
     </section>
 
@@ -257,8 +243,7 @@ Notes:</strong></p>
     <img src="abraham_lincoln_quote.jpg" alt="Abraham Lincoln quote">
   </div>
 </div>
-
-
+</article>
 </section> <!-- CLOSES the #scrolly section above -->
 
 <section id="outro" class="container-lg">
@@ -282,3 +267,31 @@ Notes:</strong></p>
 
   <p>Given more time, I would have conducted a sentiment analysis using AI through NLP techniques.</p>
 </section>
+  </main>
+
+  <script>
+    // Initialize scrollama: highlight each step as it scrolls into view
+    // while the "sticky-thing" graphic stays pinned behind it.
+    const scroller = scrollama();
+
+    function handleStepEnter(response) {
+      response.element.classList.add("is-active");
+    }
+
+    function handleStepExit(response) {
+      response.element.classList.remove("is-active");
+    }
+
+    scroller
+      .setup({
+        step: "#scrolly .step",
+        offset: 0.6,
+      })
+      .onStepEnter(handleStepEnter)
+      .onStepExit(handleStepExit);
+
+    // Keep step positions accurate when the window is resized.
+    window.addEventListener("resize", scroller.resize);
+  </script>
+</body>
+</html>
